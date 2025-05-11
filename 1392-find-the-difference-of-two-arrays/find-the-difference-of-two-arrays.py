@@ -5,11 +5,6 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[List[int]]
         """
-        output = [[], []]
-        for i in nums1:
-            if i not in nums2 and i not in output[0]:
-                output[0].append(i)
-        for j in nums2:
-            if j not in nums1 and j not in output[1]:
-                output[1].append(j)
-        return output
+        num1_set = set(nums1)
+        num2_set = set(nums2)
+        return [[x for x in num1_set if x not in num2_set], [x for x in num2_set if x not in num1_set]]
